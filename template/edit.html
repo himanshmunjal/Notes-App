@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Note</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="/">📝 easyNotes</a>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="card shadow border-0">
+        <div class="card-body">
+          <h3 class="text-center text-primary mb-4">Edit Note</h3>
+          <form method="post" action="/update/{{ note_id }}">
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="title" name="title" value="{{ note.title }}" required>
+            </div>
+            <div class="mb-3">
+              <label for="note" class="form-label">Description</label>
+              <textarea class="form-control" id="note" name="note" rows="4" required>{{ note.note }}</textarea>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="important" name="important" {% if note.important %}checked{% endif %}>
+              <label class="form-check-label" for="important">Mark as Important</label>
+            </div>
+            <div class="d-flex justify-content-between">
+              <a href="/" class="btn btn-outline-secondary">Cancel</a>
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
