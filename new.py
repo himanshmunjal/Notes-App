@@ -2,7 +2,7 @@ from pymongo import MongoClient
 
 # === CONNECT TO YOUR DATABASE ===
 # (replace with your Atlas connection string)
-conn = MongoClient("mongodb+srv://munjalhimansh2211_db_user:90UPpbHScCD7yskH@cluster0.rgxv77e.mongodb.net/")
+conn = MongoClient("mongodb+srv://<your_db_username>:<your_db_paaword>@cluster0.rgxv77e.mongodb.net/")
 db = conn["notes"]
 collection = db["notes"]
 
